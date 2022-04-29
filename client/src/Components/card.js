@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import '../App.css'
 import {Grid, TextField} from "@mui/material";
+import DebounceSrcatch from "./search";
 
 
 export default function MyCard() {
@@ -31,7 +32,7 @@ export default function MyCard() {
                     <TextField InputLabelProps={{style:{color:'#aba9a9'}}} id="standard-basic" label="Email" variant="standard" />
                 </Grid>
                 <Grid item lg={2} md={2} xs={2}>
-
+                    <DebounceSrcatch/>
                 </Grid>
                 <Grid item lg={12} md={12} xs={12}>
                     <Button variant="outlined">Alert the hell out of me!</Button>
