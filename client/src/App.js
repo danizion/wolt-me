@@ -5,8 +5,8 @@ import {Address} from "./Components/address";
 function App() {
   return (
     <div className="App">
-        {/*<Home/>*/}
-        <Address/>
+        <Home/>
+        {/*<Address/>*/}
     </div>
   );
 }
