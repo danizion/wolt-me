@@ -1,0 +1,771 @@
+Index: client/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"client\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@emotion/react\": \"^11.9.0\",\r\n    \"@emotion/styled\": \"^11.8.1\",\r\n    \"@testing-library/jest-dom\": \"^5.16.4\",\r\n    \"@testing-library/react\": \"^13.1.1\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"react\": \"^18.0.0\",\r\n    \"react-dom\": \"^18.0.0\",\r\n    \"react-scripts\": \"5.0.1\",\r\n    \"web-vitals\": \"^2.1.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  },\r\n  \"devDependencies\": {\r\n    \"@mui/material\": \"^5.6.3\"\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package.json b/client/package.json
+--- a/client/package.json	(revision 04768e3bfb02627b7f0b02d0a37d07bd74263701)
++++ b/client/package.json	(date 1651077432071)
+@@ -5,11 +5,15 @@
+   "dependencies": {
+     "@emotion/react": "^11.9.0",
+     "@emotion/styled": "^11.8.1",
++    "@material-ui/core": "^4.12.4",
++    "@material-ui/icons": "^4.11.3",
+     "@testing-library/jest-dom": "^5.16.4",
+     "@testing-library/react": "^13.1.1",
+     "@testing-library/user-event": "^13.5.0",
++    "google-maps-react": "^2.0.6",
+     "react": "^18.0.0",
+     "react-dom": "^18.0.0",
++    "react-places-autocomplete": "^7.3.0",
+     "react-scripts": "5.0.1",
+     "web-vitals": "^2.1.4"
+   },
+Index: client/public/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html lang=\"en\">\r\n  <head>\r\n    <meta charset=\"utf-8\" />\r\n    <link rel=\"icon\" href=\"%PUBLIC_URL%/favicon.ico\" />\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n    <meta name=\"theme-color\" content=\"#000000\" />\r\n    <meta\r\n      name=\"description\"\r\n      content=\"Web site created using create-react-app\"\r\n    />\r\n    <link rel=\"apple-touch-icon\" href=\"%PUBLIC_URL%/logo192.png\" />\r\n    <!--\r\n      manifest.json provides metadata used when your web app is installed on a\r\n      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/\r\n    -->\r\n    <link rel=\"manifest\" href=\"%PUBLIC_URL%/manifest.json\" />\r\n    <!--\r\n      Notice the use of %PUBLIC_URL% in the tags above.\r\n      It will be replaced with the URL of the `public` folder during the build.\r\n      Only files inside the `public` folder can be referenced from the HTML.\r\n\r\n      Unlike \"/favicon.ico\" or \"favicon.ico\", \"%PUBLIC_URL%/favicon.ico\" will\r\n      work correctly both with client-side routing and a non-root public URL.\r\n      Learn how to configure a non-root public URL by running `npm run build`.\r\n    -->\r\n    <title>React App</title>\r\n  </head>\r\n  <body>\r\n    <noscript>You need to enable JavaScript to run this app.</noscript>\r\n    <div id=\"root\"></div>\r\n    <!--\r\n      This HTML file is a template.\r\n      If you open it directly in the browser, you will see an empty page.\r\n\r\n      You can add webfonts, meta tags, or analytics to this file.\r\n      The build step will place the bundled scripts into the <body> tag.\r\n\r\n      To begin the development, run `npm start` or `yarn start`.\r\n      To create a production bundle, use `npm run build` or `yarn build`.\r\n    -->\r\n  </body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/public/index.html b/client/public/index.html
+--- a/client/public/index.html	(revision 04768e3bfb02627b7f0b02d0a37d07bd74263701)
++++ b/client/public/index.html	(date 1651053035544)
+@@ -26,6 +26,8 @@
+     -->
+     <title>React App</title>
+   </head>
++  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCq7XgQTgXO7vGe_g7FFmcoCl43xqabH2A&libraries=places"></script>
++
+   <body>
+     <noscript>You need to enable JavaScript to run this app.</noscript>
+     <div id="root"></div>
+Index: client/src/Components/address.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/src/Components/address.js b/client/src/Components/address.js
+new file mode 100644
+--- /dev/null	(date 1651080173617)
++++ b/client/src/Components/address.js	(date 1651080173617)
+@@ -0,0 +1,337 @@
++// import {useState} from "react"
++// import PlacesAutocomplete, {
++//     geocodeByAddress,
++//     getLatLng,
++// } from 'react-places-autocomplete';
++//
++//
++// export default function Address(){
++//     const [address,setAddress] = useState('')
++//     const [coordinates,setCoordinates] = useState({
++//         lat:null,
++//         lng:null
++//     })
++//
++//     const handleSelect = async val =>{
++//         const results = await geocodeByAddress(val)
++//         const ll = await getLatLng(results[0])
++//         console.log(ll)
++//         setAddress(val)
++//         setCoordinates(ll)
++//     }
++//     return(
++//         <div>
++//             <p>lat: {coordinates.lat}</p>
++//             <p>lat: {coordinates.lng}</p>
++//             <p>address: {address}</p>
++//
++//             <PlacesAutocomplete
++//                 value={address}
++//                 onChange={setAddress}
++//                 onSelect={handleSelect}
++//             >
++//                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
++//                     <div>
++//                         <input
++//                             {...getInputProps({
++//                                 placeholder: 'Search Places ...',
++//                                 className: 'location-search-input',
++//                             })}
++//                         />
++//                         <div className="autocomplete-dropdown-container">
++//                             {loading && <div>Loading...</div>}
++//                             {suggestions.map(suggestion => {
++//                                 const className = suggestion.active
++//                                     ? 'suggestion-item--active'
++//                                     : 'suggestion-item';
++//                                 // inline style for demonstration purpose
++//                                 const style = suggestion.active
++//                                     ? { backgroundColor: '#fafafa', cursor: 'pointer' }
++//                                     : { backgroundColor: '#ffffff', cursor: 'pointer' };
++//                                 return (
++//                                     <div
++//                                         {...getSuggestionItemProps(suggestion, {
++//                                             className,
++//                                             style,
++//                                         })}
++//                                     >
++//                                         <span>{suggestion.description}</span>
++//                                     </div>
++//                                 );
++//                             })}
++//                         </div>
++//                     </div>
++//                 )}
++//             </PlacesAutocomplete>
++//         </div>
++//     )
++// }
++
++// import React, {useEffect, useRef, useState} from 'react'
++//
++// import {Search} from "@material-ui/icons";
++//
++//
++// const apiKey = 'AIzaSyCq7XgQTgXO7vGe_g7FFmcoCl43xqabH2A'
++// const mapApiJs = 'https://maps.googleapis.com/maps/api/js';
++// const geocodeJson = 'https://maps.googleapis.com/maps/api/geocode/json';
++// function loadAsyncScript(src) {
++//     return new Promise(resolve => {
++//         const script = document.createElement("script");
++//         Object.assign(script, {
++//             type: "text/javascript",
++//             async: true,
++//             src
++//         })
++//         script.addEventListener("load", () => resolve(script));
++//         document.head.appendChild(script);
++//     })
++// }
++//
++// const extractAddress = (place) => {
++//
++//     const address = {
++//         city: "",
++//         state: "",
++//         zip: "",
++//         country: "",
++//         plain() {
++//             const city = this.city ? this.city + ", " : "";
++//             const zip = this.zip ? this.zip + ", " : "";
++//             const state = this.state ? this.state + ", " : "";
++//             return city + zip + state + this.country;
++//         }
++//     }
++//
++//     if (!Array.isArray(place?.address_components)) {
++//         return address;
++//     }
++//
++//     place.address_components.forEach(component => {
++//         const types = component.types;
++//         const value = component.long_name;
++//
++//         if (types.includes("locality")) {
++//             address.city = value;
++//         }
++//
++//         if (types.includes("administrative_area_level_2")) {
++//             address.state = value;
++//         }
++//
++//         if (types.includes("postal_code")) {
++//             address.zip = value;
++//         }
++//
++//         if (types.includes("country")) {
++//             address.country = value;
++//         }
++//
++//     });
++//
++//     return address;
++// }
++//
++//
++// export default function Address() {
++//     const searchInput = useRef(null);
++//     const [address, setAddress] = useState({});
++//
++// // init gmap script
++//     const initMapScript = () => {
++//         // if script already loaded
++//         if(window.google) {
++//             return Promise.resolve();
++//         }
++//         const src = `${mapApiJs}?key=${apiKey}&libraries=places&v=weekly`;
++//         return loadAsyncScript(src);
++//     }
++//
++//     // do something on address change
++//     const onChangeAddress = (autocomplete) => {
++//         const place = autocomplete.getPlace();
++//         setAddress(extractAddress(place));
++//     }
++//
++//     // init autocomplete
++//     const initAutocomplete = () => {
++//         if (!searchInput.current) return;
++//
++//         const autocomplete = new window.google.maps.places.Autocomplete(searchInput.current);
++//         autocomplete.setFields(["address_component", "geometry"]);
++//         autocomplete.addListener("place_changed", () => onChangeAddress(autocomplete));
++//
++//     }
++//
++//
++//     const reverseGeocode = ({ latitude: lat, longitude: lng}) => {
++//         const url = `${geocodeJson}?key=${apiKey}&latlng=${lat},${lng}`;
++//         searchInput.current.value = "Getting your location...";
++//         fetch(url)
++//             .then(response => response.json())
++//             .then(location => {
++//                 const place = location.results[0];
++//                 const _address = extractAddress(place);
++//                 setAddress(_address);
++//                 searchInput.current.value = _address.plain();
++//             })
++//     }
++//
++//
++//     const findMyLocation = () => {
++//         if (navigator.geolocation) {
++//             navigator.geolocation.getCurrentPosition(position => {
++//                 reverseGeocode(position.coords)
++//             })
++//         }
++//     }
++//
++//
++//
++//
++//
++//     // load map script after mounted
++//     useEffect(() => {
++//         initMapScript().then(() => initAutocomplete())
++//     }, []);
++//
++//
++//     return(
++//         <div>
++//             <div className="search">
++//                 <span><Search /></span>
++//                 <input ref={searchInput} type="text" placeholder="Search location...."/>
++//             </div>
++//         </div>
++//     )
++// }
++
++
++import React, { Component } from 'react';
++import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
++import PlacesAutocomplete, {
++    geocodeByAddress,
++    getLatLng,
++} from 'react-places-autocomplete';
++
++const center = { lat: 50.064192, lng: -130.605469 };
++// Create a bounding box with sides ~10km away from the center point
++const defaultBounds = {
++    north: center.lat + 0.1,
++    south: center.lat - 0.1,
++    east: center.lng + 0.1,
++    west: center.lng - 0.1,
++};
++// const input = document.getElementById("pac-input");
++const options = {
++    bounds: defaultBounds,
++    componentRestrictions: { country: "us" },
++    fields: ["address_components", "geometry", "icon", "name"],
++    strictBounds: false,
++    types: ["establishment"],
++};
++const google = window.google;
++
++const autocomplete = new google.maps.places.Autocomplete('ma', options);
++const test = autocomplete
++console.log(autocomplete)
++
++
++export class Address extends Component {
++    constructor(props) {
++        super(props);
++        this.state = {
++            // for google map places autocomplete
++            address: '',
++
++            showingInfoWindow: false,
++            activeMarker: {},
++            selectedPlace: {},
++
++            mapCenter: {
++                lat: 49.2827291,
++                lng: -123.1207375
++            }
++        };
++    }
++
++    handleChange = address => {
++        this.setState({ address });
++    };
++
++    handleSelect = address => {
++        this.setState({ address });
++        geocodeByAddress(address)
++            .then(results => getLatLng(results[0]))
++            .then(latLng => {
++                console.log('Success', latLng);
++
++                // update center state
++                this.setState({ mapCenter: latLng });
++            })
++            .catch(error => console.error('Error', error));
++    };
++
++    render() {
++        return (
++            <div id='googleMaps'>
++                <PlacesAutocomplete
++                    value={this.state.address}
++                    onChange={this.handleChange}
++                    onSelect={this.handleSelect}
++                >
++                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
++                        <div>
++                            <input
++                                {...getInputProps({
++                                    placeholder: 'Search Places ...',
++                                    className: 'location-search-input',
++                                })}
++                            />
++                            <div className="autocomplete-dropdown-container">
++                                {/*{loading && <div>Loading...</div>}*/}
++                                {suggestions.map(suggestion => {
++                                    const className = suggestion.active
++                                        ? 'suggestion-item--active'
++                                        : 'suggestion-item';
++                                    // inline style for demonstration purpose
++                                    const style = suggestion.active
++                                        ? { backgroundColor: '#fafafa', cursor: 'pointer' }
++                                        : { backgroundColor: '#ffffff', cursor: 'pointer' };
++                                    return (
++                                        <div
++                                            {...getSuggestionItemProps(suggestion, {
++                                                className,
++                                                style,
++                                            })}
++                                        >
++                                            <span>{suggestion.description}</span>
++                                        </div>
++                                    );
++                                })}
++                            </div>
++                        </div>
++                    )}
++                </PlacesAutocomplete>
++
++                {/*<Map*/}
++                {/*    google={this.props.google}*/}
++                {/*    initialCenter={{*/}
++                {/*        lat: this.state.mapCenter.lat,*/}
++                {/*        lng: this.state.mapCenter.lng*/}
++                {/*    }}*/}
++                {/*    center={{*/}
++                {/*        lat: this.state.mapCenter.lat,*/}
++                {/*        lng: this.state.mapCenter.lng*/}
++                {/*    }}*/}
++                {/*>*/}
++                {/*    <Marker*/}
++                {/*        position={{*/}
++                {/*            lat: this.state.mapCenter.lat,*/}
++                {/*            lng: this.state.mapCenter.lng*/}
++                {/*        }} />*/}
++                {/*</Map>*/}
++            </div>
++        )
++    }
++}
+Index: client/package-lock.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/client/package-lock.json b/client/package-lock.json
+--- a/client/package-lock.json	(revision 04768e3bfb02627b7f0b02d0a37d07bd74263701)
++++ b/client/package-lock.json	(date 1651077432294)
+@@ -2018,6 +2018,96 @@
+       "resolved": "https://registry.npmjs.org/@leichtgewicht/ip-codec/-/ip-codec-2.0.3.tgz",
+       "integrity": "sha512-nkalE/f1RvRGChwBnEIoBfSEYOXnCRdleKuv6+lePbMDrMZXeDQnqak5XDOeBgrPPyPfAdcCu/B5z+v3VhplGg=="
+     },
++    "@material-ui/core": {
++      "version": "4.12.4",
++      "resolved": "https://registry.npmjs.org/@material-ui/core/-/core-4.12.4.tgz",
++      "integrity": "sha512-tr7xekNlM9LjA6pagJmL8QCgZXaubWUwkJnoYcMKd4gw/t4XiyvnTkjdGrUVicyB2BsdaAv1tvow45bPM4sSwQ==",
++      "requires": {
++        "@babel/runtime": "^7.4.4",
++        "@material-ui/styles": "^4.11.5",
++        "@material-ui/system": "^4.12.2",
++        "@material-ui/types": "5.1.0",
++        "@material-ui/utils": "^4.11.3",
++        "@types/react-transition-group": "^4.2.0",
++        "clsx": "^1.0.4",
++        "hoist-non-react-statics": "^3.3.2",
++        "popper.js": "1.16.1-lts",
++        "prop-types": "^15.7.2",
++        "react-is": "^16.8.0 || ^17.0.0",
++        "react-transition-group": "^4.4.0"
++      }
++    },
++    "@material-ui/icons": {
++      "version": "4.11.3",
++      "resolved": "https://registry.npmjs.org/@material-ui/icons/-/icons-4.11.3.tgz",
++      "integrity": "sha512-IKHlyx6LDh8n19vzwH5RtHIOHl9Tu90aAAxcbWME6kp4dmvODM3UvOHJeMIDzUbd4muuJKHmlNoBN+mDY4XkBA==",
++      "requires": {
++        "@babel/runtime": "^7.4.4"
++      }
++    },
++    "@material-ui/styles": {
++      "version": "4.11.5",
++      "resolved": "https://registry.npmjs.org/@material-ui/styles/-/styles-4.11.5.tgz",
++      "integrity": "sha512-o/41ot5JJiUsIETME9wVLAJrmIWL3j0R0Bj2kCOLbSfqEkKf0fmaPt+5vtblUh5eXr2S+J/8J3DaCb10+CzPGA==",
++      "requires": {
++        "@babel/runtime": "^7.4.4",
++        "@emotion/hash": "^0.8.0",
++        "@material-ui/types": "5.1.0",
++        "@material-ui/utils": "^4.11.3",
++        "clsx": "^1.0.4",
++        "csstype": "^2.5.2",
++        "hoist-non-react-statics": "^3.3.2",
++        "jss": "^10.5.1",
++        "jss-plugin-camel-case": "^10.5.1",
++        "jss-plugin-default-unit": "^10.5.1",
++        "jss-plugin-global": "^10.5.1",
++        "jss-plugin-nested": "^10.5.1",
++        "jss-plugin-props-sort": "^10.5.1",
++        "jss-plugin-rule-value-function": "^10.5.1",
++        "jss-plugin-vendor-prefixer": "^10.5.1",
++        "prop-types": "^15.7.2"
++      },
++      "dependencies": {
++        "csstype": {
++          "version": "2.6.20",
++          "resolved": "https://registry.npmjs.org/csstype/-/csstype-2.6.20.tgz",
++          "integrity": "sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA=="
++        }
++      }
++    },
++    "@material-ui/system": {
++      "version": "4.12.2",
++      "resolved": "https://registry.npmjs.org/@material-ui/system/-/system-4.12.2.tgz",
++      "integrity": "sha512-6CSKu2MtmiJgcCGf6nBQpM8fLkuB9F55EKfbdTC80NND5wpTmKzwdhLYLH3zL4cLlK0gVaaltW7/wMuyTnN0Lw==",
++      "requires": {
++        "@babel/runtime": "^7.4.4",
++        "@material-ui/utils": "^4.11.3",
++        "csstype": "^2.5.2",
++        "prop-types": "^15.7.2"
++      },
++      "dependencies": {
++        "csstype": {
++          "version": "2.6.20",
++          "resolved": "https://registry.npmjs.org/csstype/-/csstype-2.6.20.tgz",
++          "integrity": "sha512-/WwNkdXfckNgw6S5R125rrW8ez139lBHWouiBvX8dfMFtcn6V81REDqnH7+CRpRipfYlyU1CmOnOxrmGcFOjeA=="
++        }
++      }
++    },
++    "@material-ui/types": {
++      "version": "5.1.0",
++      "resolved": "https://registry.npmjs.org/@material-ui/types/-/types-5.1.0.tgz",
++      "integrity": "sha512-7cqRjrY50b8QzRSYyhSpx4WRw2YuO0KKIGQEVk5J8uoz2BanawykgZGoWEqKm7pVIbzFDN0SpPcVV4IhOFkl8A=="
++    },
++    "@material-ui/utils": {
++      "version": "4.11.3",
++      "resolved": "https://registry.npmjs.org/@material-ui/utils/-/utils-4.11.3.tgz",
++      "integrity": "sha512-ZuQPV4rBK/V1j2dIkSSEcH5uT6AaHuKWFfotADHsC0wVL1NLd2WkFCm4ZZbX33iO4ydl6V0GPngKm8HZQ2oujg==",
++      "requires": {
++        "@babel/runtime": "^7.4.4",
++        "prop-types": "^15.7.2",
++        "react-is": "^16.8.0 || ^17.0.0"
++      }
++    },
+     "@mui/base": {
+       "version": "5.0.0-alpha.78",
+       "resolved": "https://registry.npmjs.org/@mui/base/-/base-5.0.0-alpha.78.tgz",
+@@ -2792,7 +2882,6 @@
+       "version": "4.4.4",
+       "resolved": "https://registry.npmjs.org/@types/react-transition-group/-/react-transition-group-4.4.4.tgz",
+       "integrity": "sha512-7gAPz7anVK5xzbeQW9wFBDg7G++aPLAFY0QaSMOou9rJZpbuI58WAuJrgu+qR92l61grlnCUe7AFX8KGahAgug==",
+-      "dev": true,
+       "requires": {
+         "@types/react": "*"
+       }
+@@ -3947,8 +4036,7 @@
+     "clsx": {
+       "version": "1.1.1",
+       "resolved": "https://registry.npmjs.org/clsx/-/clsx-1.1.1.tgz",
+-      "integrity": "sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==",
+-      "dev": true
++      "integrity": "sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA=="
+     },
+     "co": {
+       "version": "4.6.0",
+@@ -4314,6 +4402,15 @@
+         }
+       }
+     },
++    "css-vendor": {
++      "version": "2.0.8",
++      "resolved": "https://registry.npmjs.org/css-vendor/-/css-vendor-2.0.8.tgz",
++      "integrity": "sha512-x9Aq0XTInxrkuFeHKbYC7zWY8ai7qJ04Kxd9MnvbC1uO5DagxoHQjm4JvG+vCdXOoFtCjbL2XSZfxmoYa9uQVQ==",
++      "requires": {
++        "@babel/runtime": "^7.8.3",
++        "is-in-browser": "^1.0.2"
++      }
++    },
+     "css-what": {
+       "version": "3.4.2",
+       "resolved": "https://registry.npmjs.org/css-what/-/css-what-3.4.2.tgz",
+@@ -4659,7 +4756,6 @@
+       "version": "5.2.1",
+       "resolved": "https://registry.npmjs.org/dom-helpers/-/dom-helpers-5.2.1.tgz",
+       "integrity": "sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==",
+-      "dev": true,
+       "requires": {
+         "@babel/runtime": "^7.8.7",
+         "csstype": "^3.0.2"
+@@ -5967,6 +6063,11 @@
+         "slash": "^3.0.0"
+       }
+     },
++    "google-maps-react": {
++      "version": "2.0.6",
++      "resolved": "https://registry.npmjs.org/google-maps-react/-/google-maps-react-2.0.6.tgz",
++      "integrity": "sha512-M8Eo9WndfQEfxcmm6yRq03qdJgw1x6rQmJ9DN+a+xPQ3K7yNDGkVDbinrf4/8vcox7nELbeopbm4bpefKewWfQ=="
++    },
+     "graceful-fs": {
+       "version": "4.2.10",
+       "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz",
+@@ -6231,6 +6332,11 @@
+       "resolved": "https://registry.npmjs.org/human-signals/-/human-signals-2.1.0.tgz",
+       "integrity": "sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw=="
+     },
++    "hyphenate-style-name": {
++      "version": "1.0.4",
++      "resolved": "https://registry.npmjs.org/hyphenate-style-name/-/hyphenate-style-name-1.0.4.tgz",
++      "integrity": "sha512-ygGZLjmXfPHj+ZWh6LwbC37l43MhfztxetbFCoYTM2VjkIUpeHgSNn7QIyVFj7YQ1Wl9Cbw5sholVJPzWvC2MQ=="
++    },
+     "iconv-lite": {
+       "version": "0.4.24",
+       "resolved": "https://registry.npmjs.org/iconv-lite/-/iconv-lite-0.4.24.tgz",
+@@ -6408,6 +6514,11 @@
+         "is-extglob": "^2.1.1"
+       }
+     },
++    "is-in-browser": {
++      "version": "1.1.3",
++      "resolved": "https://registry.npmjs.org/is-in-browser/-/is-in-browser-1.1.3.tgz",
++      "integrity": "sha1-Vv9NtoOgeMYILrldrX3GLh0E+DU="
++    },
+     "is-module": {
+       "version": "1.0.0",
+       "resolved": "https://registry.npmjs.org/is-module/-/is-module-1.0.0.tgz",
+@@ -8158,6 +8269,84 @@
+       "resolved": "https://registry.npmjs.org/jsonpointer/-/jsonpointer-5.0.0.tgz",
+       "integrity": "sha512-PNYZIdMjVIvVgDSYKTT63Y+KZ6IZvGRNNWcxwD+GNnUz1MKPfv30J8ueCjdwcN0nDx2SlshgyB7Oy0epAzVRRg=="
+     },
++    "jss": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss/-/jss-10.9.0.tgz",
++      "integrity": "sha512-YpzpreB6kUunQBbrlArlsMpXYyndt9JATbt95tajx0t4MTJJcCJdd4hdNpHmOIDiUJrF/oX5wtVFrS3uofWfGw==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "csstype": "^3.0.2",
++        "is-in-browser": "^1.1.3",
++        "tiny-warning": "^1.0.2"
++      }
++    },
++    "jss-plugin-camel-case": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-camel-case/-/jss-plugin-camel-case-10.9.0.tgz",
++      "integrity": "sha512-UH6uPpnDk413/r/2Olmw4+y54yEF2lRIV8XIZyuYpgPYTITLlPOsq6XB9qeqv+75SQSg3KLocq5jUBXW8qWWww==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "hyphenate-style-name": "^1.0.3",
++        "jss": "10.9.0"
++      }
++    },
++    "jss-plugin-default-unit": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-default-unit/-/jss-plugin-default-unit-10.9.0.tgz",
++      "integrity": "sha512-7Ju4Q9wJ/MZPsxfu4T84mzdn7pLHWeqoGd/D8O3eDNNJ93Xc8PxnLmV8s8ZPNRYkLdxZqKtm1nPQ0BM4JRlq2w==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "jss": "10.9.0"
++      }
++    },
++    "jss-plugin-global": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-global/-/jss-plugin-global-10.9.0.tgz",
++      "integrity": "sha512-4G8PHNJ0x6nwAFsEzcuVDiBlyMsj2y3VjmFAx/uHk/R/gzJV+yRHICjT4MKGGu1cJq2hfowFWCyrr/Gg37FbgQ==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "jss": "10.9.0"
++      }
++    },
++    "jss-plugin-nested": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-nested/-/jss-plugin-nested-10.9.0.tgz",
++      "integrity": "sha512-2UJnDrfCZpMYcpPYR16oZB7VAC6b/1QLsRiAutOt7wJaaqwCBvNsosLEu/fUyKNQNGdvg2PPJFDO5AX7dwxtoA==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "jss": "10.9.0",
++        "tiny-warning": "^1.0.2"
++      }
++    },
++    "jss-plugin-props-sort": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-props-sort/-/jss-plugin-props-sort-10.9.0.tgz",
++      "integrity": "sha512-7A76HI8bzwqrsMOJTWKx/uD5v+U8piLnp5bvru7g/3ZEQOu1+PjHvv7bFdNO3DwNPC9oM0a//KwIJsIcDCjDzw==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "jss": "10.9.0"
++      }
++    },
++    "jss-plugin-rule-value-function": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-rule-value-function/-/jss-plugin-rule-value-function-10.9.0.tgz",
++      "integrity": "sha512-IHJv6YrEf8pRzkY207cPmdbBstBaE+z8pazhPShfz0tZSDtRdQua5jjg6NMz3IbTasVx9FdnmptxPqSWL5tyJg==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "jss": "10.9.0",
++        "tiny-warning": "^1.0.2"
++      }
++    },
++    "jss-plugin-vendor-prefixer": {
++      "version": "10.9.0",
++      "resolved": "https://registry.npmjs.org/jss-plugin-vendor-prefixer/-/jss-plugin-vendor-prefixer-10.9.0.tgz",
++      "integrity": "sha512-MbvsaXP7iiVdYVSEoi+blrW+AYnTDvHTW6I6zqi7JcwXdc6I9Kbm234nEblayhF38EftoenbM+5218pidmC5gA==",
++      "requires": {
++        "@babel/runtime": "^7.3.1",
++        "css-vendor": "^2.0.8",
++        "jss": "10.9.0"
++      }
++    },
+     "jsx-ast-utils": {
+       "version": "3.2.2",
+       "resolved": "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-3.2.2.tgz",
+@@ -8955,6 +9144,11 @@
+         }
+       }
+     },
++    "popper.js": {
++      "version": "1.16.1-lts",
++      "resolved": "https://registry.npmjs.org/popper.js/-/popper.js-1.16.1-lts.tgz",
++      "integrity": "sha512-Kjw8nKRl1m+VrSFCoVGPph93W/qrSO7ZkqPpTf7F4bk/sqcfWK019dWBUpE/fBOsOQY1dks/Bmcbfn1heM/IsA=="
++    },
+     "portfinder": {
+       "version": "1.0.28",
+       "resolved": "https://registry.npmjs.org/portfinder/-/portfinder-1.0.28.tgz",
+@@ -9921,6 +10115,15 @@
+       "resolved": "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz",
+       "integrity": "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
+     },
++    "react-places-autocomplete": {
++      "version": "7.3.0",
++      "resolved": "https://registry.npmjs.org/react-places-autocomplete/-/react-places-autocomplete-7.3.0.tgz",
++      "integrity": "sha512-86wcHC69JATvWBnIS/yCsBHLtwzOGcnx3Ye94u74yTrz1jLRC/txkVDkf6rvC+Jq3zNe/tAg/W53x0EaH1ZPPw==",
++      "requires": {
++        "lodash.debounce": "^4.0.8",
++        "prop-types": "^15.5.8"
++      }
++    },
+     "react-refresh": {
+       "version": "0.11.0",
+       "resolved": "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz",
+@@ -9985,7 +10188,6 @@
+       "version": "4.4.2",
+       "resolved": "https://registry.npmjs.org/react-transition-group/-/react-transition-group-4.4.2.tgz",
+       "integrity": "sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==",
+-      "dev": true,
+       "requires": {
+         "@babel/runtime": "^7.5.5",
+         "dom-helpers": "^5.0.1",
+@@ -11073,6 +11275,11 @@
+       "resolved": "https://registry.npmjs.org/thunky/-/thunky-1.1.0.tgz",
+       "integrity": "sha512-eHY7nBftgThBqOyHGVN+l8gF0BucP09fMo0oO/Lb0w1OF80dJv+lDVpXG60WMQvkcxAkNybKsrEIE3ZtKGmPrA=="
+     },
++    "tiny-warning": {
++      "version": "1.0.3",
++      "resolved": "https://registry.npmjs.org/tiny-warning/-/tiny-warning-1.0.3.tgz",
++      "integrity": "sha512-lBN9zLN/oAf68o3zNXYrdCt1kP8WsiGW8Oo2ka41b2IM5JL/S1CTyX1rW0mb/zSuJun0ZUrDxx4sqvYS2FWzPA=="
++    },
+     "tmpl": {
+       "version": "1.0.5",
+       "resolved": "https://registry.npmjs.org/tmpl/-/tmpl-1.0.5.tgz",
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"371622c7-a060-446d-a765-19e652a14de5\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"JavaScript File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"28KfECshFYAJ9eANxpKkkjnDR19\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"project.propVCSSupport.Mappings\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"371622c7-a060-446d-a765-19e652a14de5\" name=\"Changes\" comment=\"\" />\r\n      <created>1650970083602</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1650970083602</updated>\r\n      <workItem from=\"1650970084876\" duration=\"4352000\" />\r\n      <workItem from=\"1650986752417\" duration=\"396000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 04768e3bfb02627b7f0b02d0a37d07bd74263701)
++++ b/.idea/workspace.xml	(date 1651213628066)
+@@ -1,7 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="371622c7-a060-446d-a765-19e652a14de5" name="Changes" comment="" />
++    <list default="true" id="371622c7-a060-446d-a765-19e652a14de5" name="Changes" comment="">
++      <change afterPath="$PROJECT_DIR$/client/src/Components/address.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -15,6 +22,11 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectId" id="28KfECshFYAJ9eANxpKkkjnDR19" />
+@@ -42,10 +54,23 @@
+       <updated>1650970083602</updated>
+       <workItem from="1650970084876" duration="4352000" />
+       <workItem from="1650986752417" duration="396000" />
++      <workItem from="1651048316994" duration="14993000" />
+     </task>
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
