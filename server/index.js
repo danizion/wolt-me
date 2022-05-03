@@ -1,4 +1,6 @@
 const express = require('express')()
+const jobsRoutes = require('./src/jobs/routs');
+
 const app = express()
 const PORT = 8080
 
@@ -12,7 +14,9 @@ app.get('/yaron', (req,res)=>{
 })
 
 
-app.listen(
-    PORT,
-    () =>console.log('yaron')
-)
+app.use('/api/v1/jobs', jobsRoutes);
+
+// app.listen(
+//     PORT,
+//     () =>console.log('yaron')
+// )

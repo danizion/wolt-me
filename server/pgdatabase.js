@@ -8,16 +8,18 @@ const client = new Client({
     database:"jobs_db"
 })
 
-client.connect();
+module.exports = client;
 
-client.query('select * from emails_restaurants where "completed" = false', (err, res) => {
-    if(!err){
-        console.log(res.rows);
-    }else {
-        console.log(err.message);
-    }
-    client.end;
-})
+// client.connect();
+
+// client.query('select * from emails_restaurants where "completed" = false', (err, res) => {
+//     if(!err){
+//         console.log(res.rows);
+//     }else {
+//         console.log(err.message);
+//     }
+//     client.end;
+// })
 
 // export function get_all() {
 //     let res = client.query('select * from emails_restaurants where "completed" = false')
