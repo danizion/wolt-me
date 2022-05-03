@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="371622c7-a060-446d-a765-19e652a14de5" name="Changes" comment="">
+    <list default="true" id="371622c7-a060-446d-a765-19e652a14de5" name="Changes" comment="changed server to nest">
       <change beforePath="$PROJECT_DIR$/server" beforeDir="false" afterPath="$PROJECT_DIR$/server" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -68,6 +68,14 @@
       <workItem from="1650986752417" duration="396000" />
       <workItem from="1651170642892" duration="7115000" />
     </task>
+    <task id="LOCAL-00001" summary="changed server to nest">
+      <created>1651568143291</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1651568143291</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,6 +92,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changed server to nest" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed server to nest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
