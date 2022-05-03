@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="371622c7-a060-446d-a765-19e652a14de5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Components/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Components/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/History.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/History.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/application.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/express.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/express.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/middleware/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/middleware/init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/middleware/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/middleware/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/response.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/response.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/router/layer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/router/layer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/router/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/router/route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/lib/view.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/lib/view.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/node_modules/express/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/node_modules/express/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server" beforeDir="false" afterPath="$PROJECT_DIR$/server" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +20,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="28KfECshFYAJ9eANxpKkkjnDR19" />
@@ -90,18 +73,28 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/index.js</url>
           <line>7</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/server/index.js</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
